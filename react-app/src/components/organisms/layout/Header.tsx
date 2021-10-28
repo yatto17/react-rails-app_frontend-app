@@ -11,6 +11,7 @@ export const Header: FC = memo(() => {
   const history = useHistory();
 
   const onClickHome = useCallback(() => history.push("/home"), [history]);
+  const onClickNewPost = useCallback(() => history.push("/home/new"), [history]);
   const onClickSetting = useCallback(() => history.push("/home/setting"), [history]);
 
   return (
@@ -41,7 +42,7 @@ export const Header: FC = memo(() => {
           // display={{ base: "none", md: "flex" }}
         >
           <Box pr={4}>
-            <Link>新規投稿</Link>
+            <Link onClick={onClickNewPost}>新規投稿</Link>
           </Box>
         </Flex>
         <Flex
