@@ -1,6 +1,8 @@
 import { FC, memo } from "react";
-import { useDisclosure, Flex, Heading, Link, Box, IconButton, Drawer, DrawerOverlay, DrawerContent, DrawerBody, Button } from "@chakra-ui/react";
-import { HamburgerIcon } from "@chakra-ui/icons";
+import { useDisclosure, Flex, Heading, Link, Box } from "@chakra-ui/react";
+
+import { MenuIconButton } from "components/atoms/button/MenuIconButton";
+import { MenuDrawer } from "components/molecules/MenuDrawer";
 
 
 export const Header: FC = memo(() => {
@@ -45,30 +47,9 @@ export const Header: FC = memo(() => {
             <Link>設定</Link>
           </Box>
         </Flex>
-        <IconButton
-          aria-label="メニューボタン"
-          icon={<HamburgerIcon />}
-          size="sm"
-          variant="unstyled"
-          display={{ base: "block", md: "none" }}
-          onClick={onOpen}
-        />
+        <MenuIconButton onOpen={onOpen} />
       </Flex>
-      <Drawer
-        placement="right"
-        size="xs"
-        onClose={onClose}
-        isOpen={isOpen}
-      >
-        <DrawerOverlay>
-          <DrawerContent>
-            <DrawerBody p={0} bg="gray.100">
-            <Button w="100%">TOP</Button>
-            <Button w="100%">設定</Button>
-            </DrawerBody>
-          </DrawerContent>
-        </DrawerOverlay>
-      </Drawer>
+      <MenuDrawer onClose={onClose} isOpen={isOpen} />
     </>
   );
 });
