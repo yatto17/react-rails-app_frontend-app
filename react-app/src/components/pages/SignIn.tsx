@@ -1,4 +1,5 @@
-import { ChangeEvent, FC, memo, useState } from "react";
+import { ChangeEvent, FC, memo, useCallback, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { Box, Divider, Flex, Heading, Stack, Link } from "@chakra-ui/layout";
 import { Input } from "@chakra-ui/input";
 
@@ -6,6 +7,7 @@ import { PrimaryButton } from "components/atoms/button/PrimaryButton";
 import { useAuth } from "hooks/useAuth";
 
 export const SignIn: FC = memo(() => {
+  const history = useHistory();
   const { signIn, loading } = useAuth();
 
   const [userMail, setUserMail] = useState<string>("");
@@ -15,6 +17,7 @@ export const SignIn: FC = memo(() => {
   const onChangeUserPassword = (e: ChangeEvent<HTMLInputElement>) => setUserPassword(e.target.value);
 
   const onClickSignIn = () => signIn(userMail, userPassword);
+  const onClickSignUpPage = useCallback(() => history.push("/sign_up"), [history]);
 
   return (
     <Flex align="center" justify="center" height="100vh">
@@ -33,6 +36,16 @@ export const SignIn: FC = memo(() => {
           >
             Sign In!!
           </PrimaryButton>
+          <Flex justify="space-between">
+            <Box fontSize={{ base: "sm", md: "md" }} color="gray" >
+              Don't have an account?
+            </Box>
+            <Box >
+              <Link color="blue" borderBottom="solid 1px" onClick={onClickSignUpPage}>
+                Sign Up now!
+              </Link>
+            </Box>
+          </Flex>
         </Stack>
       </Box>
     </Flex>

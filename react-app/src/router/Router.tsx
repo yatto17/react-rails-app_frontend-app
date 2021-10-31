@@ -5,12 +5,16 @@ import { SignIn } from "components/pages/SignIn";
 import { homeRoutes } from "./HomeRoutes";
 import { Page404 } from "components/pages/Page404";
 import { HeaderLayout } from "components/templates/HeaderLayout";
+import { SignUp } from "components/pages/SignUp";
 
 export const Router: FC = memo(() => {
   return (
     <Switch>
       <Route exact path="/">
         <SignIn />
+      </Route>
+      <Route path="/sign_up">
+        <SignUp />
       </Route>
       <Route path="/home" render={({ match: { url } }) => (
         <Switch>
