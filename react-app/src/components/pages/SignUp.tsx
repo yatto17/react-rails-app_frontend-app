@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, memo, useState } from "react";
 import { Input } from "@chakra-ui/input";
-import { Box, Divider, Flex, Heading, Link, Stack } from "@chakra-ui/layout";
+import { Box, Divider, Flex, Heading, Stack } from "@chakra-ui/layout";
 
 import { PrimaryButton } from "components/atoms/button/PrimaryButton";
 import { useAuth } from "hooks/useAuth";
