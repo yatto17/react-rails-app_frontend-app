@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 
 import { MenuIconButton } from "components/atoms/button/MenuIconButton";
 import { MenuDrawer } from "components/molecules/MenuDrawer";
+// import { PrimaryButton } from "components/atoms/button/PrimaryButton";
 
 
 export const Header: FC = memo(() => {
@@ -13,6 +14,7 @@ export const Header: FC = memo(() => {
   const onClickHome = useCallback(() => history.push("/home"), [history]);
   const onClickNewPost = useCallback(() => history.push("/home/new"), [history]);
   const onClickSetting = useCallback(() => history.push("/home/setting"), [history]);
+  const onClickSignOut = useCallback(() => {}, []);
 
   return (
     <>
@@ -31,27 +33,39 @@ export const Header: FC = memo(() => {
           _hover={{ cursor: "pointer" }}
           onClick={onClickHome}
         >
-          <Heading as="h1" fontSize={{ base: "md", md: "lg" }}>
+          <Heading as="h1" fontSize={{ base: "lg", md: "2xl" }}>
             メモリアルバム
           </Heading>
         </Flex>
         <Flex
           align="center"
-          fontSize="sm"
+          fontSize="md"
           flexGrow={2}
           // display={{ base: "none", md: "flex" }}
         >
           <Box pr={4}>
+            {/* <PrimaryButton onClick={onClickNewPost} >
+              新規投稿
+            </PrimaryButton> */}
             <Link onClick={onClickNewPost}>新規投稿</Link>
           </Box>
         </Flex>
         <Flex
           align="center"
-          fontSize="sm"
+          fontSize="md"
           // flexGrow={2}
           display={{ base: "none", md: "flex" }}
         >
+          <Box mr={4}>
+            {/* <PrimaryButton onClick={onClickSignOut} >
+              サインアウト
+            </PrimaryButton> */}
+            <Link onClick={onClickSignOut}>サインアウト</Link>
+          </Box>
           <Box pr={4}>
+            {/* <PrimaryButton onClick={onClickSetting} >
+              設定
+            </PrimaryButton> */}
             <Link onClick={onClickSetting}>設定</Link>
           </Box>
         </Flex>
@@ -62,6 +76,7 @@ export const Header: FC = memo(() => {
         isOpen={isOpen} 
         onClickHome={onClickHome} 
         onClickSetting={onClickSetting} 
+        onClickSignOut={onClickSignOut}
       />
     </>
   );

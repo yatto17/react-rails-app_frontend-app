@@ -7,10 +7,11 @@ type Props = {
   isOpen: boolean;
   onClickHome: () => void;
   onClickSetting: () => void;
+  onClickSignOut: () => void;
 }
 
 export const MenuDrawer: FC<Props> = memo((props) => {
-  const { onClose, isOpen, onClickHome, onClickSetting} = props;
+  const { onClose, isOpen, onClickHome, onClickSetting, onClickSignOut} = props;
   return (
     <Drawer
         placement="right"
@@ -23,6 +24,7 @@ export const MenuDrawer: FC<Props> = memo((props) => {
           <DrawerBody p={0} bg="gray.100">
           <Button w="100%" onClick={onClickHome}>TOP</Button>
           <Button w="100%" onClick={onClickSetting}>設定</Button>
+          <Button w="100%" onClick={onClickSignOut}>サインアウト</Button>
           </DrawerBody>
         </DrawerContent>
       </DrawerOverlay>
