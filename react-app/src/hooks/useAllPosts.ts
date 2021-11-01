@@ -1,12 +1,12 @@
 import { useCallback, useState } from "react";
 import axios from "axios";
 
-import { User } from "types/api/user";
+import { Post } from "types/api/post";
 import { useMessage } from "./useMessage";
 
 export const useAllPosts = () => {
   const [loading, setLoading] = useState(false);
-  const [posts, setPosts] = useState<Array<User>>([]);
+  const [posts, setPosts] = useState<Array<Post>>([]);
 
   const { showMessage } = useMessage();
 
@@ -14,7 +14,7 @@ export const useAllPosts = () => {
     setLoading(true);
 
     axios
-      .get<Array<User>>("https://jsonplaceholder.typicode.com/users")
+      .get<Array<Post>>("https://jsonplaceholder.typicode.com/users")
       .then((res) => setPosts(res.data))
       .catch(() => {
         showMessage({ title: "データの取得に失敗しました", status: "error" });
