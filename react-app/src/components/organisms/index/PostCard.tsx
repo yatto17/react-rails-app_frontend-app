@@ -6,10 +6,11 @@ type Props = {
   imageUrl: string;
   title: string;
   date: string;
+  onClickDetailPost: () => void;
 }
 
 export const PostCard: FC<Props> = memo((props) => {
-  const { imageUrl, title, date } = props;
+  const { imageUrl, title, date, onClickDetailPost } = props;
   return (
     <Box 
       w="260px" 
@@ -19,6 +20,7 @@ export const PostCard: FC<Props> = memo((props) => {
       shadow="md"
       p={4}
       _hover={{ cursor: "pointer", opacity: 0.8 }}
+      onClick={onClickDetailPost}
     >
       <Stack textAlign="center">
         <Image
