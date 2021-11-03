@@ -2,11 +2,11 @@ import { ChangeEvent, FC, memo, useState } from "react";
 import { Input } from "@chakra-ui/input";
 import { Box, Divider, Flex, Heading, Stack } from "@chakra-ui/layout";
 
-import { PrimaryButton } from "components/atoms/button/PrimaryButton";
-import { useAuth } from "hooks/useAuth";
+// import { PrimaryButton } from "components/atoms/button/PrimaryButton";
+// import { useAuth } from "hooks/useAuth";
 
 export const SignUp: FC = memo(() => {
-  const { signUp, loading } = useAuth();
+  // const { signUp, loading } = useAuth();
 
   const [userName, setUserName] = useState<string>("");
   const [userMail, setUserMail] = useState<string>("");
@@ -18,7 +18,7 @@ export const SignUp: FC = memo(() => {
   const onChangeUserPassword = (e: ChangeEvent<HTMLInputElement>) => setUserPassword(e.target.value);
   const onChangeUserPasswordConfirmation = (e: ChangeEvent<HTMLInputElement>) => setUserPasswordConfirmation(e.target.value);
 
-  const onClickSignUp = () => signUp(userName, userMail, userPassword, userPasswordConfirmation);
+  // const onClickSignUp = () => signUp(userName, userMail, userPassword, userPasswordConfirmation);
 
   return (
     <Flex align="center" justify="center" height="100vh">
@@ -32,13 +32,13 @@ export const SignUp: FC = memo(() => {
           <Input placeholder="Mail" value={userMail} onChange={onChangeUserMail} />
           <Input placeholder="Password" value={userPassword} onChange={onChangeUserPassword} />
           <Input placeholder="Password-confirmation" value={userPasswordConfirmation} onChange={onChangeUserPasswordConfirmation} />
-          <PrimaryButton
-            onClick={onClickSignUp}
-            loading={loading}
+          {/* <PrimaryButton
+            // onClick={onClickSignUp}
+            // loading={loading}
             disabled={userName === "" || userMail === "" || userPassword === "" || userPasswordConfirmation === ""}
           >
             Sign Up!!
-          </PrimaryButton>
+          </PrimaryButton> */}
         </Stack>
       </Box>
     </Flex>

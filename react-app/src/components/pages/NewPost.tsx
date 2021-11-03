@@ -1,5 +1,5 @@
 import { ChangeEvent, FC, memo, useState } from "react";
-import { Box, Flex, Stack } from "@chakra-ui/layout";
+import { Flex, Stack } from "@chakra-ui/layout";
 import { Input } from "@chakra-ui/input";
 import { PrimaryButton } from "components/atoms/button/PrimaryButton";
 import { Textarea } from "@chakra-ui/textarea";
