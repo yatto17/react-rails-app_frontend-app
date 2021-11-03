@@ -1,5 +1,5 @@
 export type signUpParams = {
-  name: string;
+  nickname: string;
   email: string;
   password: string;
   passwordConfirmation: string;

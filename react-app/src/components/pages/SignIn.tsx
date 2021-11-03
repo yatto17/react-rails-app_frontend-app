@@ -10,8 +10,7 @@ import { SignUp } from "components/organisms/user/SignUpModal";
 
 export const SignIn: FC = memo(() => {
   const { isOpen, onOpen, onClose } = useDisclosure();
-  // const history = useHistory();
-  const { signIn, loading } = useAuth();
+  const { submitForSignIn, loading } = useAuth();
 
   const [userMail, setUserMail] = useState<string>("");
   const [userPassword, setUserPassword] = useState("");
@@ -19,9 +18,8 @@ export const SignIn: FC = memo(() => {
   const onChangeUserMail = (e: ChangeEvent<HTMLInputElement>) => setUserMail(e.target.value);
   const onChangeUserPassword = (e: ChangeEvent<HTMLInputElement>) => setUserPassword(e.target.value);
 
-  const onClickSignIn = () => signIn(userMail, userPassword);
+  const onClickSignIn = () => submitForSignIn(userMail, userPassword);
   const onClickSignUpLink = useCallback(() => onOpen(),[onOpen]);
-  // const onClickSignUpPage = useCallback(() => history.push("/sign_up"), [history]);
 
   return (
     <>

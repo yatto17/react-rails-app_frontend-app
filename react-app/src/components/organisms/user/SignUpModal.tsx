@@ -14,7 +14,7 @@ type Props = {
 
 export const SignUp: FC<Props> = memo((props) => {
   const { isOpen, onClose } = props;
-  const { signUp, loading } = useAuth();
+  const { submitForSignUp, loading } = useAuth();
 
   const [userName, setUserName] = useState<string>("");
   const [userMail, setUserMail] = useState<string>("");
@@ -26,7 +26,7 @@ export const SignUp: FC<Props> = memo((props) => {
   const onChangeUserPassword = (e: ChangeEvent<HTMLInputElement>) => setUserPassword(e.target.value);
   const onChangeUserPasswordConfirmation = (e: ChangeEvent<HTMLInputElement>) => setUserPasswordConfirmation(e.target.value);
 
-  const onClickSignUp = () => signUp(userName, userMail, userPassword, userPasswordConfirmation);
+  const onClickSignUp = () => submitForSignUp(userName, userMail, userPassword, userPasswordConfirmation);
 
   const initialRef = useRef(null);
   const finalRef = useRef(null);
