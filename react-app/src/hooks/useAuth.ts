@@ -40,7 +40,7 @@ export const useAuth = () => {
             setCurrentUser(res.data.data);
 
             history.push("/home");
-
+            
             console.log("Signed in successfully!")
           } else {
             showMessage({ title: "Invalid Email or Password", status: "error" })
