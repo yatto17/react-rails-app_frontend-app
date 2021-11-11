@@ -5,10 +5,12 @@ import { useHistory } from "react-router-dom";
 
 import { PostCard } from "components/organisms/index/PostCard";
 import { useAllPosts } from "hooks/useAllPosts";
+import { useAuthUser } from "hooks/useAuthUser";
 
 export const Home: FC = memo(() => {
   const history = useHistory();
   const {getPosts, loading, posts} = useAllPosts();
+  const { currentUser } = useAuthUser();
 
   useEffect(() => getPosts(), []);
 
@@ -30,6 +32,7 @@ export const Home: FC = memo(() => {
                 date={post.phone} // 本当はpost.date
                 onClickDetailPost={onClickDetailPost}
               />
+              {console.log(currentUser)}
             </WrapItem>
           ))}
         </Wrap>
