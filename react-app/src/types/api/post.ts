@@ -21,3 +21,12 @@ export type Post = {
     bs: string;
   }
 }
+
+// export type Post = {
+//   id: number;
+//   title: string;
+//   images: [
+//     imageUrl: string,
+//   ];
+//   content: string;
+// }

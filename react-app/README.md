@@ -1,46 +1,97 @@
-# Getting Started with Create React App
+# README
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## アプリケーション名
 
-## Available Scripts
+Memorialbum(仮)
 
-In the project directory, you can run:
+## 概要
 
-### `yarn start`
+ユーザーアカウントが登録でき、タイトル、写真、テキストを含めた記事が投稿できます。子どもの頃にまとめてもらっていたアルバムのように、大切な人との思い出を記録していただけたらと思います。
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## 利用方法
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. ユーザー登録を行う
+2. 新規投稿リンクをクリック
+3. タイトル・写真・テキストを入力し、投稿ボタンを押す
+4. トップページの投稿されたカードをクリックすると詳細ページに遷移し、編集可能
 
-### `yarn test`
+## 制作背景
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+自分が子どもの頃の写真は冊子にまとめてあり、それを眺めながら懐かしい話に花を咲かせていましたが、今のデジタルに囲まれた時代の子どもたちは、大人になってからどのように子ども時代を振り返るのだろう？と思ったことがきっかけです。今の時代もアルバムを作ってしまえばいいことなのですが、作るのにはとても手間がかかってしまいますし、少し敷居が高く感じてしまいます。  
+そこで、パソコンや携帯で同じようなことができれば、若い世代の親でも手軽にアルバム制作ができるのではないか、簡単に共有ができればオンラインでも、それぞれが同じアルバムを眺めながら話をすることができるのではないかと思い、このアプリを制作しようと考えました。
 
-### `yarn build`
+## 実装機能について
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### ユーザー登録機能
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 記事一覧・詳細表示機能
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 実装予定の機能
 
-### `yarn eject`
+### 記事投稿・編集・削除機能
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+最も重要な機能であるため、最重要項目として実装していきます。
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### コメント機能
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+今後、家族等を招待でき、招待されたユーザーが閲覧した記事にコメントできるよう、コメント機能の実装を行います。
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 招待ユーザーの認証機能
 
-## Learn More
+このアプリは、親が子のために使うことを想定していますが、親族への共有も簡単にできるようにユーザーを招待できるようにしていきます。
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### SNS 認証機能
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+若い世代の保護者はほぼ利用しているであろう、SNS での認証機能を実装することで、アカウント登録を簡単にできるようにしていきます。
+
+### カレンダー機能
+
+アルバムとしての利用を目的としているため、視覚的にいつ投稿したかがわかる機能が必要だと考えています。検索も容易にできるような実装をしていきます。
+
+## 開発環境
+
+### バックエンド
+
+Ruby, Ruby on Rails
+
+### フロントエンド
+
+React.js
+
+### データベース
+
+MySQL
+
+### インフラ
+
+Docker, docker-compose
+
+### ソース管理
+
+GitHub, GitHubDesktop
+
+## DB 設計
+
+### users テーブル
+
+| Column             | Type   | Options     |
+| ------------------ | ------ | ----------- |
+| email              | string | null: false |
+| encrypted_password | string | null: false |
+| nickname           | string | null: false |
+
+### Association
+
+- has_many :post
+
+### posts テーブル
+
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| title   | string     | null: false                    |
+| content | text       | null: false                    |
+| user    | references | null: false, foreign_key: true |
+
+### Association
+
+- belongs_to :user
