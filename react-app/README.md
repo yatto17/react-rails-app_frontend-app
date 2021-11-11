@@ -24,7 +24,26 @@ Memorialbum(仮)
 
 ### ユーザー登録機能
 
+- 新規登録機能  
+  まず「Sign Up Now!」のリンクをクリックします。
+
+  [![Image from Gyazo](https://i.gyazo.com/7e14a031323c44429a94cded43dc5e3b.gif)](https://gyazo.com/7e14a031323c44429a94cded43dc5e3b)
+
+  その後遷移したモーダルに必要情報を入力し、サインアップのボタンをクリックすることで、ユーザーが登録され、サインインもされます。
+
+  [![Image from Gyazo](https://i.gyazo.com/ad9a91269d6adb103642907f6eb94127.gif)](https://gyazo.com/ad9a91269d6adb103642907f6eb94127)
+
+- ログイン機能
+
+  [![Image from Gyazo](https://i.gyazo.com/040efc93939eef3a5ccc5e27a4b4fb23.gif)](https://gyazo.com/040efc93939eef3a5ccc5e27a4b4fb23)
+
+  登録済みのユーザーは、メールアドレス・パスワードを入力し、サインインボタンをクリックすることで、サインインできます。
+
 ### 記事一覧・詳細表示機能
+
+投稿した記事のカードをクリックすることで、詳細ページに遷移します。
+
+[![Image from Gyazo](https://i.gyazo.com/d9067b42f90b00cc08249a630ffa529f.gif)](https://gyazo.com/d9067b42f90b00cc08249a630ffa529f)
 
 ## 実装予定の機能
 
@@ -52,11 +71,11 @@ Memorialbum(仮)
 
 ### バックエンド
 
-Ruby, Ruby on Rails
+Ruby, Ruby on Rails(API)
 
 ### フロントエンド
 
-React.js
+React.js, TypeScript, Chakra-UI
 
 ### データベース
 
