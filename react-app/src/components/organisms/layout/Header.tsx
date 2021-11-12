@@ -34,7 +34,7 @@ export const Header: FC = memo(() => {
           onClick={onClickHome}
         >
           <Heading as="h1" fontSize={{ base: "lg", md: "2xl" }}>
-            メモリアルバム
+            Memorialbum
           </Heading>
         </Flex>
         <Flex
