@@ -1,32 +1,30 @@
-export type Post = {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
-  address: {
-    street: string;
-    suite: string;
-    city: string;
-    zipcode: string;
-    geo: {
-      lat: string;
-      lng: string;
-    }
-  };
-  phone: string;
-  website: string;
-  company: {
-    name: string;
-    catchPhrase: string;
-    bs: string;
-  }
-}
-
 // export type Post = {
 //   id: number;
-//   title: string;
-//   images: [
-//     imageUrl: string,
-//   ];
-//   content: string;
+//   name: string;
+//   username: string;
+//   email: string;
+//   address: {
+//     street: string;
+//     suite: string;
+//     city: string;
+//     zipcode: string;
+//     geo: {
+//       lat: string;
+//       lng: string;
+//     }
+//   };
+//   phone: string;
+//   website: string;
+//   company: {
+//     name: string;
+//     catchPhrase: string;
+//     bs: string;
+//   }
 // }
+
+export type Post = {
+  title: string;
+  imageUrl: string;
+  content: string;
+  // userId: number;
+}

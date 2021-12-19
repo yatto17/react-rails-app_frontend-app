@@ -10,18 +10,18 @@ export const signUp = (params: signUpParams) => {
 }
 
 // サインイン（ログイン）
-export const signIn = (params: signInParams)  => {
+export const signIn = (params: signInParams) => {
   return client.post("auth/sign_in", params)
 }
 
-// // サインアウト（ログアウト）
-// export const signOut = () => {
-//   return client.delete("auth/sign_out", { headers: {
-//     "access-token": Cookies.get("_access_token"),
-//     "client": Cookies.get("_client"),
-//     "uid": Cookies.get("_uid")
-//   }})  
-// }
+// サインアウト（ログアウト）
+export const signOut = (accessToken: string, clientData: string, uid: string) => {
+  return client.delete("auth/sign_out", { headers: {
+    "access-token": accessToken,
+    "client": clientData,
+    "uid": uid
+  }})  
+}
 
 // // 認証済みのユーザーを取得
 // export const getCurrentUser = () => {

@@ -4,17 +4,18 @@ import { useHistory } from "react-router-dom";
 
 import { MenuIconButton } from "components/atoms/button/MenuIconButton";
 import { MenuDrawer } from "components/molecules/MenuDrawer";
+import { useAuth } from "hooks/useAuth";
 // import { PrimaryButton } from "components/atoms/button/PrimaryButton";
-
 
 export const Header: FC = memo(() => {
   const { onOpen, onClose, isOpen } = useDisclosure();
   const history = useHistory();
+  const { handleSignOut } = useAuth();
 
   const onClickHome = useCallback(() => history.push("/home"), [history]);
   const onClickNewPost = useCallback(() => history.push("/home/new"), [history]);
   const onClickSetting = useCallback(() => history.push("/home/setting"), [history]);
-  const onClickSignOut = useCallback(() => {}, []);
+  const onClickSignOut = useCallback(() => handleSignOut(), [handleSignOut]);
 
   return (
     <>

@@ -25,11 +25,11 @@ export const Home: FC = memo(() => {
       ) : (
         <Wrap p={{ base: 4, md: 12 }} justify="space-around">
           {posts.map((post) => (
-            <WrapItem key={post.id}>
+            <WrapItem key={post.title}>
               <PostCard
-                imageUrl="https://source.unsplash.com/random" // 本当はpost.imagesかな？
-                title={post.name} // 本当はpost.title
-                date={post.phone} // 本当はpost.date
+                imageUrl={post.imageUrl}
+                title={post.title}
+                date={post.content}
                 onClickDetailPost={onClickDetailPost}
               />
               {console.log(currentUser)}
